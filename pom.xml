@@ -11,6 +11,7 @@
     <groupId>me.danght</groupId>
     <artifactId>npulibrary</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
     <name>npulibrary</name>
     <description>NPU-2019-Fall-J2EE-FinalProject</description>
 
