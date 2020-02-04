@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
+ * 订单实体类
  * @author DangHT
  * @date 03/02/2020
  */

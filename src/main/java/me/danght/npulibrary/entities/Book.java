@@ -41,4 +41,7 @@ public class Book {
     @Column(name = "BOOK_THEME", length = 20)
     private String theme;
 
+    @Column(name = "BOOK_STOCK")
+    private Integer stock;
+
 }
