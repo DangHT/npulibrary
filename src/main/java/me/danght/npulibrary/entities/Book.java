@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * 图书实体类
@@ -34,8 +33,7 @@ public class Book {
     private String press;
 
     @Column(name = "PUBLISH_DATE")
-    @Temporal(TemporalType.DATE)
-    private Date publishDate;
+    private String publishDate;
 
     @Column(name = "BOOK_ISBN", length = 50)
     private String isbn;
