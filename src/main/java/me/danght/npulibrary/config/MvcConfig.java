@@ -1,11 +1,15 @@
 package me.danght.npulibrary.config;
 
 import me.danght.npulibrary.component.MyLocaleResolver;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.util.Arrays;
 
 /**
  * MVC属性设置
@@ -14,6 +18,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
+
+    @Bean
+    public FilterRegistrationBean hiddenHttpMethodFilter() {
+        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean(new HiddenHttpMethodFilter());
+        filterRegistrationBean.setUrlPatterns(Arrays.asList("/*"));
+        return filterRegistrationBean;
+    }
 
     /**
      * 注册视图映射
