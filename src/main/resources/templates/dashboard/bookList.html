@@ -67,7 +67,7 @@
                     <td style="width: 15%" th:text="${book.isbn}"></td>
                     <td style="width: 5%" th:text="${book.stock}"></td>
                     <td>
-                        <a class="btn btn-sm btn-primary" th:href="@{/book/}+${book.id}">编辑</a>
+                        <a class="btn btn-sm btn-primary" th:href="@{/edit/}+${book.id}">编辑</a>
                         <button th:attr="del_uri=@{/book/}+${book.id}" class="btn btn-sm btn-danger deleteBtn">删除
                         </button>
                     </td>
