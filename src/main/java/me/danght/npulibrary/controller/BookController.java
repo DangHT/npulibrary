@@ -106,4 +106,18 @@ public class BookController {
         return "redirect:/books";
     }
 
+    /**
+     * 获取指定学科的所有图书
+     * @param theme BOOK_THEME
+     * @param model
+     * @return 图书列表页
+     */
+    @GetMapping("/books/{theme}")
+    public String getBookListByTheme(@PathVariable("theme") String theme,
+                                     Model model) {
+        List<Book> books = bookRepository.findBooksByTheme(theme);
+        model.addAttribute("books", books);
+        return "books";
+    }
+
 }
