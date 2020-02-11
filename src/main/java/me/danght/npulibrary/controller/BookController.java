@@ -37,7 +37,7 @@ public class BookController {
      * @param model data model
      * @return 图书修改页
      */
-    @GetMapping("/book/{id}")
+    @GetMapping("/edit/{id}")
     public String toEditPage(@PathVariable("id") Integer id,
                              Model model) {
         Book book = bookRepository.getOne(id);
@@ -118,6 +118,20 @@ public class BookController {
         List<Book> books = bookRepository.findBooksByTheme(theme);
         model.addAttribute("books", books);
         return "books";
+    }
+
+    /**
+     * 根据id获取图书数据
+     * @param id BOOK_ID
+     * @param model
+     * @return 图书详情页
+     */
+    @GetMapping("/book/{id}")
+    public String getBookById(@PathVariable("id") Integer id,
+                              Model model) {
+        Book book = bookRepository.getOne(id);
+        model.addAttribute("book", book);
+        return "detail";
     }
 
 }

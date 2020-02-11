@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title th:text="${book.title}">西北工业大学电子图书馆</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+    <link th:href="@{/assets/css/offcanvas.css}" rel="stylesheet">
+
+</head>
+<body class="text-center">
+<!--引入user-topbar-->
+<div th:replace="commons/bar::user-topbar"></div>
+
+<main role="main">
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <img th:src="${book.imageUrl}">
+            </div>
+            <div class="col-md-6">
+                <h2 th:text="${book.title}" style="text-align: left"></h2>
+                <h4 th:text="${book.author}" style="text-align: left"></h4>
+                <h4 th:text="${book.press}" style="text-align: left"></h4>
+                <h4 th:text="${book.publishDate}" style="text-align: left"></h4>
+                <h4 th:text="${book.isbn}" style="text-align: left"></h4>
+                <button type="button" class="btn btn-primary" style="text-align: left">借阅</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <p th:text="${book.info}"></p>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+        <hr>
+
+    </div> <!-- /container -->
+
+</main>
+
+<footer class="container">
+    <p>&copy; 2019-2020 by 党昊天</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/docs/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/assets/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+<script th:src="@{/assets/js/offcanvas.js}"></script>
+</body>
+
+</html>
