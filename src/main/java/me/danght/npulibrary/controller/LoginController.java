@@ -1,9 +1,11 @@
 package me.danght.npulibrary.controller;
 
 import me.danght.npulibrary.entities.User;
+import me.danght.npulibrary.repository.BookRepository;
 import me.danght.npulibrary.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -21,11 +23,15 @@ public class LoginController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    BookRepository bookRepository;
+
     /**
      * 用户登录
      * @param email USER_EMAIL
      * @param password USER_PASSWORD
      * @param map
+     * @param model
      * @param session
      * @return
      */
@@ -33,6 +39,7 @@ public class LoginController {
     public String login(@RequestParam("email") String email,
                         @RequestParam("password") String password,
                         Map<String, Object> map,
+                        Model model,
                         HttpSession session) {
         User user = userRepository.findByEmail(email);
         if (user == null) {
@@ -43,10 +50,11 @@ public class LoginController {
             map.put("msg", "密码错误");
             return "login";
         }
+        session.setAttribute("loginUser", user.getName());
+        model.addAttribute("books", bookRepository.findAll());
         if (user.isAdmin()) {
             //登录成功，重定向到admin页面
-            session.setAttribute("loginUser", user.getName());
-            return "redirect:/admin";
+            return "dashboard/bookList";
         }
         return "books";
     }
