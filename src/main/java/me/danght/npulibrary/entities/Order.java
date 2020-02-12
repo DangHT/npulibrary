@@ -37,4 +37,6 @@ public class Order {
 
     private Integer term;
 
+    private boolean finished;
+
 }
