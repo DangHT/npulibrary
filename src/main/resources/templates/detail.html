@@ -29,7 +29,11 @@
                 <h4 th:text="${book.press}" style="text-align: left"></h4>
                 <h4 th:text="${book.publishDate}" style="text-align: left"></h4>
                 <h4 th:text="${book.isbn}" style="text-align: left"></h4>
-                <button type="button" class="btn btn-primary" style="text-align: left">借阅</button>
+                <form th:action="@{/order}" id="addOrderForm" method="post">
+                    <input type="hidden" name="bookId" th:value="${book.id}">
+                    <input type="hidden" name="username" th:value="${session.loginUser}">
+                    <button type="submit" class="btn btn-primary">借阅</button>
+                </form>
             </div>
         </div>
 
