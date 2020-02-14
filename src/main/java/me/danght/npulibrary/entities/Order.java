@@ -24,7 +24,7 @@ public class Order {
     private Integer id;
 
     @Column(name = "LEND_DATE")
-    @Temporal(TemporalType.TIME)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date lendDate;
 
     @JoinColumn(name = "USER_ID")
