@@ -47,7 +47,7 @@
             <h2><a class="btn btn-sm btn-success" href="" th:href="@{/book}">添加新书</a></h2>
             <div class="table-responsive">
             <table class="table table-striped table-sm table-hover">
-                <thead>
+                <thead class="thead-dark">
                 <tr>
                     <th>书名</th>
                     <th>作者</th>
@@ -59,7 +59,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="book:${books}" th:class="${book.stock==0}?'danger':''">
+                <tr th:each="book:${books}" th:class="${book.stock==0}?'table-danger':''">
                     <td style="width: 25%" th:text="${book.title}"></td>
                     <td style="width: 20%" th:text="${book.author}"></td>
                     <td style="width: 15%" th:text="${book.press}"></td>

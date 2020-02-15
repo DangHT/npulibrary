@@ -33,9 +33,8 @@
                         <td style="width: 25%" th:text="${order.book.title}"></td>
                         <td style="width: 20%" th:text="${#dates.format(order.lendDate, 'yyyy-MM-dd HH:mm')}"></td>
                         <td style="width: 10%" th:text="${order.term}"></td>
-                        <td style="width: 20%" th:text="${order.finished}?'已完成':'未完成'"></td>
                         <td>
-                            <a class="btn btn-sm btn-primary" th:href="@{/finishOrder/}+${order.id}">还书</a>
+                            <a class="orderBtn btn btn-sm btn-primary" th:href="@{/finishOrder/}+${order.id}" th:text="${order.finished}?'已完成':'归还'"></a>
                         </td>
                     </tr>
                     </tbody>
@@ -57,9 +56,20 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="/docs/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/assets/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
 <script th:src="@{/assets/js/offcanvas.js}"></script>
-<script>
+<script th:inline="javascript">
     $(function () {
         $("#item-myOrders").addClass("active")
+    });
+
+    $(function () {
+        var btns = $('.orderBtn');
+        var orders = [[${orders}]];
+        for (i = 0; i < btns.length; i++) {
+            if (orders[i].finished) {
+                btns[i].classList.remove('btn-primary');
+                btns[i].classList.add('disabled');
+            }
+        }
     })
 </script>
 </body>

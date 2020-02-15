@@ -84,6 +84,7 @@ public class OrderController {
         order.setTerm(30);
         Date date = new Date();
         order.setLendDate(date);
+        order.setFinished(false);
 
         orderRepository.save(order);
         return "redirect:/order/" + username;

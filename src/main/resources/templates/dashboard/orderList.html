@@ -46,7 +46,7 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <div class="table-responsive">
                 <table class="table table-striped table-sm table-hover">
-                    <thead>
+                    <thead class="thead-dark">
                     <tr>
                         <th>用户名</th>
                         <th>邮箱</th>
@@ -57,7 +57,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="order:${orders}">
+                    <tr th:each="order:${orders}"  th:class="${order.finished}?'table-success':''">
                         <td style="width: 10%" th:text="${order.user.name}"></td>
                         <td style="width: 15%" th:text="${order.user.email}"></td>
                         <td style="width: 20%" th:text="${order.book.title}"></td>

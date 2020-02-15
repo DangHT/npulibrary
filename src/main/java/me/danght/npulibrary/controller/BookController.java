@@ -131,6 +131,7 @@ public class BookController {
                               Model model) {
         Book book = bookRepository.getOne(id);
         model.addAttribute("book", book);
+        if (book.getStock() == 0) model.addAttribute("msg", "暂无库存");
         return "detail";
     }
 

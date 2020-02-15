@@ -46,7 +46,7 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <div class="table-responsive">
                 <table class="table table-striped table-sm table-hover">
-                    <thead>
+                    <thead class="thead-dark">
                     <tr>
                         <th>用户名</th>
                         <th>邮箱</th>
@@ -55,7 +55,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="user:${users}">
+                    <tr th:each="user:${users}" th:class="${user.isAdmin()}?'table-primary':''">
                         <td style="width: 25%" th:text="${user.name}"></td>
                         <td style="width: 20%" th:text="${user.email}"></td>
                         <td style="width: 20%" th:text="${user.isAdmin()}?'管理员':'用户'"></td>

@@ -29,10 +29,13 @@
                 <h4 th:text="${book.press}" style="text-align: left"></h4>
                 <h4 th:text="${book.publishDate}" style="text-align: left"></h4>
                 <h4 th:text="${book.isbn}" style="text-align: left"></h4>
+                <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
                 <form th:action="@{/order}" id="addOrderForm" method="post">
-                    <input type="hidden" name="bookId" th:value="${book.id}">
-                    <input type="hidden" name="username" th:value="${session.loginUser}">
-                    <button type="submit" class="btn btn-primary">借阅</button>
+                    <div class="form-group">
+                        <input type="hidden" name="bookId" th:value="${book.id}">
+                        <input type="hidden" name="username" th:value="${session.loginUser}">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="lendBook">借阅</button>
                 </form>
             </div>
         </div>
@@ -58,6 +61,14 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="/docs/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/assets/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
 <script th:src="@{/assets/js/offcanvas.js}"></script>
+<script th:inline="javascript">
+    $(function () {
+        if ([[${book.stock}]] === 0) {
+            $('#lendBook').removeClass('btn-primary');
+            document.getElementById('lendBook').setAttribute('disabled','disabled')
+        }
+    })
+</script>
 </body>
 
 </html>
