@@ -9,6 +9,7 @@
   <!-- Bootstrap core CSS -->
   <link th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
   <link th:href="@{/assets/css/offcanvas.css}" rel="stylesheet">
+  <link th:href="@{/favicon.ico}" rel='shortcut icon' type='image/x-icon'/>
 
 </head>
 <body class="text-center">
@@ -66,6 +67,10 @@
 <script>window.jQuery || document.write('<script src="/docs/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/assets/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
 <script th:src="@{/assets/js/offcanvas.js}"></script>
 <script>
+  $(function () {
+    $("#item-home").addClass("active")
+  });
+
   $(function () {
     var theme = window.location.pathname.split("/");
     theme = theme[theme.length - 1];

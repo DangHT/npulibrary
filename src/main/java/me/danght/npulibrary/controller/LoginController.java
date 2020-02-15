@@ -53,6 +53,7 @@ public class LoginController {
             return "login";
         }
         session.setAttribute("loginUser", user.getName());
+        session.setAttribute("isAdmin", user.isAdmin());
         session.setAttribute("firstOpen", false);
         if (user.isAdmin()) {
             //登录成功，重定向到admin页面

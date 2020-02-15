@@ -1,5 +1,6 @@
 package me.danght.npulibrary.config;
 
+import me.danght.npulibrary.component.AdminHandlerInterceptor;
 import me.danght.npulibrary.component.LoginHandlerInterceptor;
 import me.danght.npulibrary.component.MyLocaleResolver;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -62,5 +63,7 @@ public class MvcConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginHandlerInterceptor())
                 .excludePathPatterns("/webjars/**", "/assets/**", "/login", "/login.html", "/signup", "/signup.html", "/user/login");
+        registry.addInterceptor(new AdminHandlerInterceptor())
+                .addPathPatterns("/books", "/users", "/orders");
     }
 }
