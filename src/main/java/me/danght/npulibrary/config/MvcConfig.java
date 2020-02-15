@@ -1,11 +1,13 @@
 package me.danght.npulibrary.config;
 
+import me.danght.npulibrary.component.LoginHandlerInterceptor;
 import me.danght.npulibrary.component.MyLocaleResolver;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -33,13 +35,15 @@ public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/")
-                .setViewName("login");
-        registry.addViewController("/index")
-                .setViewName("login");
+                .setViewName("forward:/index");
         registry.addViewController("/index.html")
+                .setViewName("forward:/index");
+        registry.addViewController("/login")
                 .setViewName("login");
         registry.addViewController("/login.html")
                 .setViewName("login");
+        registry.addViewController("/signup")
+                .setViewName("signup");
         registry.addViewController("/signup.html")
                 .setViewName("signup");
     }
@@ -54,4 +58,9 @@ public class MvcConfig implements WebMvcConfigurer {
     }
 
 
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LoginHandlerInterceptor())
+                .excludePathPatterns("/webjars/**", "/assets/**", "/login", "/login.html", "/signup", "/signup.html", "/user/login");
+    }
 }
