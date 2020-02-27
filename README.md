@@ -10,20 +10,22 @@
 
 基本业务流程如下：
 
-![](https://raw.githubusercontent.com/DangHT/npulibrary/master/images/基本流程.jpg)
+![](https://github.com/DangHT/npulibrary/raw/master/images/workFlow.png)
 
 # 部分运行效果演示
 
-![](https://raw.githubusercontent.com/DangHT/npulibrary/master/images/登录页.jpg)
+![](https://github.com/DangHT/npulibrary/raw/master/images/login.jpg)
 
-![](https://raw.githubusercontent.com/DangHT/npulibrary/master/images/首页.jpg)
+![](https://github.com/DangHT/npulibrary/raw/master/images/index.jpg)
 
-![](https://raw.githubusercontent.com/DangHT/npulibrary/master/images/分类页.jpg)
+![](https://github.com/DangHT/npulibrary/raw/master/images/subjects.jpg)
 
-![](https://raw.githubusercontent.com/DangHT/npulibrary/master/images/我的订单.jpg)
+![](https://github.com/DangHT/npulibrary/raw/master/images/bookDetail.jpg)
 
-![](https://raw.githubusercontent.com/DangHT/npulibrary/master/images/图书管理.jpg)
+![](https://github.com/DangHT/npulibrary/raw/master/images/myOrders.jpg)
 
-![](https://raw.githubusercontent.com/DangHT/npulibrary/master/images/用户管理.jpg)
+![](https://github.com/DangHT/npulibrary/raw/master/images/bookMange.jpg)
 
-![](https://raw.githubusercontent.com/DangHT/npulibrary/master/images/订单管理.jpg)
+![](https://github.com/DangHT/npulibrary/raw/master/images/userMange.jpg)
+
+![](https://github.com/DangHT/npulibrary/raw/master/images/orderMange.jpg)
